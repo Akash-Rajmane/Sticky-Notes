@@ -5,6 +5,12 @@ var index = 0;
 
 window.onload = document.querySelector("#user_input").select();
 
+const notes = JSON.parse(localStorage.getItem('notes'))
+
+if(notes) {
+    notes.forEach(note => createStickyNote(note))
+}
+
 document.querySelector("#add_note").addEventListener("click", () => {
   document.querySelector("#modal").style.display = "block";
 });
