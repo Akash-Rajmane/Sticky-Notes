@@ -37,6 +37,8 @@ createStickyNote = (text) => {
 
   details.appendChild(noteText);
   note.appendChild(details);
+    
+   updateLS();
 
   if(index > random_colors.length - 1)
     index = 0;
@@ -50,7 +52,15 @@ createStickyNote = (text) => {
   document.querySelector("#all_notes").appendChild(note);
 }
 
+function updateLS() {
+    const notesText = document.querySelectorAll('textarea')
 
+    const notes = []
+
+    notesText.forEach(note => notes.push(note.value))
+
+    localStorage.setItem('notes', JSON.stringify(notes))
+}
 
 
 
